@@ -1,0 +1,117 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Jessica Younker"
+    },
+    {
+      "id": 2,
+      "name": "Jordan Nelson"
+    },
+    {
+      "id": 3,
+      "name": "Zoe LeBlanc"
+    },
+    {
+      "id": 4,
+      "name": "Blaise Roberts"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Nashville North",
+      "address": "500 Circle Way"
+    },
+    {
+      "id": 2,
+      "name": "Nashville South",
+      "address": "298 Doge Blvd."
+    }
+  ],
+  "animals": [
+    {
+      "id": 1,
+      "name": "Frank",
+      "species": "Dog"
+    },
+    {
+      "id": 2,
+      "name": "Scratchy",
+      "species": "Cat"
+    },
+    {
+      "id": 3,
+      "name": "Sneaky",
+      "species": "Ferret"
+    },
+    {
+      "id": 4,
+      "name": "Tubby",
+      "species": "Rabbit"
+    },
+    {
+      "id": 5,
+      "name": "Gordon",
+      "species": "Dog"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Ryan Tanay"
+    },
+    {
+      "id": 2,
+      "name": "Emma Beaton"
+    },
+    {
+      "id": 3,
+      "name": "Dani Adkins"
+    },
+    {
+      "id": 4,
+      "name": "Adam Oswalt"
+    },
+    {
+      "id": 5,
+      "name": "Fletcher Bangs"
+    },
+    {
+      "id": 6,
+      "name": "Angela Lee"
+    }
+  ],
+  "petOwnerRelationships": [
+    {
+      "id": 1,
+      "animalId": 1,
+      "ownerId": 2
+    },
+    {
+      "id": 2,
+      "animalId": 1,
+      "ownerId": 3
+    },
+    {
+      "id": 3,
+      "animalId": 2,
+      "ownerId": 1
+    },
+    {
+      "id": 4,
+      "animalId": 3,
+      "ownerId": 5
+    },
+    {
+      "id": 5,
+      "animalId": 4,
+      "ownerId": 6
+    },
+    {
+      "id": 6,
+      "animalId": 5,
+      "ownerId": 4
+    }
+  ]
+}
