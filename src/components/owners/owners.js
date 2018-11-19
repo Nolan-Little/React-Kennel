@@ -9,6 +9,9 @@ export default class Owner extends Component {
           this.props.owners.map(owner =>
             <div key = {owner.id}>
               <h5>{owner.name}</h5>
+              <a href="#"
+                onClick={() => this.props.delete(owner.id, "owners")}
+                className="card-link">Delete</a>
             </div>
           )
         }
