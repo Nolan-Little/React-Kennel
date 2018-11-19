@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 export default class Location extends Component {
   render() {
     return (
-      <section className="locations">
+      <section className="locations list">
         {
           this.props.locations.map(location =>
             <div key = {location.id}>
