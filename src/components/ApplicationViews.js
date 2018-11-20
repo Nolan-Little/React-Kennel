@@ -4,6 +4,9 @@ import AnimalList from './animals/animal'
 import LocationList from './locations/location'
 import EmployeeList from './employees/employee'
 import OwnersList from "./owners/owners"
+import apiManager from '../modules/apiManager';
+
+let kennelApi = new apiManager()
 
 
 export default class ApplicationViews extends Component {
@@ -19,35 +22,25 @@ export default class ApplicationViews extends Component {
   componentDidMount() {
     const newState = {}
 
-    fetch("http://localhost:5002/animals")
-      .then(r => r.json())
+    kennelApi.getAll("animals")
       .then(animals => newState.animals = animals)
-      .then(() => fetch("http://localhost:5002/employees")
-        .then(r => r.json()))
+      .then(() => kennelApi.getAll("employees"))
       .then(employees => newState.employees = employees)
-      .then(() => fetch("http://localhost:5002/owners")
-        .then(r => r.json()))
+      .then(() => kennelApi.getAll("owners"))
       .then(owners => newState.owners = owners)
-      .then(() => fetch("http://localhost:5002/locations")
-        .then(r => r.json()))
+      .then(() => kennelApi.getAll("locations"))
       .then(locations => newState.locations = locations)
-      .then(() => fetch("http://localhost:5002/petOwnerRelationships")
-        .then(r => r.json()))
+      .then(() => kennelApi.getAll("petOwnerRelationships"))
       .then(petOwnerRelationships => newState.petRelationships = petOwnerRelationships)
       .then(() => this.setState(newState))
   }
 
-  delete = (id, resource)  => {
+  delete = (resource, id) => {
     const newState = {}
-    fetch(`http://localhost:5002/${resource}/${id}`, {
-      method: "DELETE"
-    })
-      .then(e => e.json())
-      .then(() => fetch(`http://localhost:5002/${resource}`))
-      .then(e => e.json())
+    kennelApi.deleteOne(resource, id)
+      .then(() => kennelApi.getAll(resource))
       .then(resourceName => newState[resource] = resourceName)
-      .then(() => fetch(`http://localhost:5002/petOwnerRelationships`))
-      .then(e => e.json())
+      .then(() => kennelApi.getAll("petOwnerRelationships"))
       .then(relationships => newState.petRelationships = relationships)
       .then(() => this.setState(newState))
   }
@@ -69,13 +62,13 @@ export default class ApplicationViews extends Component {
         }} />
         <Route path="/employees" render={(props) => {
           return <EmployeeList
-          employees={this.state.employees}
-          delete={this.delete}
+            employees={this.state.employees}
+            delete={this.delete}
           />
         }} />
         <Route path="/owners" render={(props) => {
           return <OwnersList owners={this.state.owners}
-          delete={this.delete}
+            delete={this.delete}
           />
         }} />
       </React.Fragment>

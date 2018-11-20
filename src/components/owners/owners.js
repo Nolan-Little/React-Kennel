@@ -10,7 +10,7 @@ export default class Owner extends Component {
             <div key = {owner.id}>
               <h5>{owner.name}</h5>
               <a href="#"
-                onClick={() => this.props.delete(owner.id, "owners")}
+                onClick={() => this.props.delete( "owners", owner.id)}
                 className="card-link">Delete</a>
             </div>
           )
