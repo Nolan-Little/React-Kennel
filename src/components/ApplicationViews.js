@@ -4,7 +4,8 @@ import AnimalList from './animals/animal'
 import LocationList from './locations/location'
 import EmployeeList from './employees/employee'
 import OwnersList from "./owners/owners"
-import apiManager from '../modules/apiManager';
+import apiManager from '../modules/apiManager'
+import AnimalDetail from './animals/AnimalDetail'
 
 let kennelApi = new apiManager()
 
@@ -53,7 +54,7 @@ export default class ApplicationViews extends Component {
         <Route exact path="/" render={(props) => {
           return <LocationList locations={this.state.locations} />
         }} />
-        <Route path="/animals" render={(props) => {
+        <Route  exact path="/animals" render={(props) => {
           return <AnimalList
             animals={this.state.animals}
             owners={this.state.owners}
@@ -71,6 +72,10 @@ export default class ApplicationViews extends Component {
             delete={this.delete}
           />
         }} />
+        <Route path="/animals/:animalId(\d+)" render={(props) => {
+          return <AnimalDetail {...props} deleteAnimal={this.deleteAnimal} animals={this.state.animals} />
+        }} />
+
       </React.Fragment>
     )
   }
