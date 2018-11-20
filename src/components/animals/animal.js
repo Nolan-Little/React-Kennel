@@ -26,7 +26,7 @@ export default class Animal extends Component {
               <h4>Owner(s): {this.getOwnerName(animal.id).join(", ")}</h4>
               <h5>Animal Name:{animal.name}</h5>
               <a href="#"
-                onClick={() => this.props.delete(animal.id, "animals")}
+                onClick={() => this.props.delete("animals", animal.id,)}
                 className="card-link">Delete</a>
             </div>
           )
